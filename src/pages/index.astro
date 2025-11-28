@@ -205,7 +205,7 @@ const experience = [
 							<h4>Recent Experience</h4>
 							{experience.map((exp) => (
 								<div class="experience-item">
-									<span class="exp-company">{exp.company}{exp.location && ` | ${exp.location}`}</span>
+									<span class="exp-company">{exp.company}{exp.location && ` - ${exp.location}`}</span>
 									<span class="exp-role">{exp.role}</span>
 								</div>
 							))}
