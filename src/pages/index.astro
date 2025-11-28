@@ -64,11 +64,11 @@ const services = [
 ];
 
 const experience = [
-	{ company: "BookRetreats", location: "USA", role: "Senior Next.js Developer", tech: "Next.js, React, SWR" },
-	{ company: "DesertCart", location: "UAE", role: "Senior React Developer", tech: "Next.js, React Native, TypeScript" },
-	{ company: "TeamKeys", location: "Italy", role: "Lead React Native Developer", tech: "React Native, TypeScript" },
-	{ company: "Secret Source", location: "Netherlands", role: "Lead React Developer", tech: "React, Redux, TypeScript" },
-	{ company: "European Space Agency", role: "Full Stack Developer", tech: "React, Django, PostgreSQL" }
+	{ company: "BookRetreats", location: "USA (Remote)", role: "Senior Next.js Developer", tech: "Next.js, React, SWR" },
+	{ company: "DesertCart", location: "UAE (Remote)", role: "Senior React Developer", tech: "Next.js, React Native, TypeScript" },
+	{ company: "TeamKeys", location: "Italy (Remote)", role: "Lead React Native Developer", tech: "React Native, TypeScript" },
+	{ company: "Secret Source", location: "Netherlands (Remote)", role: "Lead React Developer", tech: "React, Redux, TypeScript" },
+	{ company: "European Space Agency", location: "Belgium (Remote)", role: "Full Stack Developer", tech: "React, Django, PostgreSQL" }
 ];
 ---
 
@@ -205,8 +205,10 @@ const experience = [
 							<h4>Recent Experience</h4>
 							{experience.map((exp) => (
 								<div class="experience-item">
-									<span class="exp-company">{exp.company}</span>
-									{exp.location && <span class="exp-location">{exp.location}</span>}
+									<div class="exp-left">
+										<span class="exp-company">{exp.company}</span>
+										{exp.location && <span class="exp-location">{exp.location}</span>}
+									</div>
 									<span class="exp-role">{exp.role}</span>
 								</div>
 							))}
@@ -771,6 +773,13 @@ const experience = [
 		border-bottom: none;
 	}
 
+	.exp-left {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		flex-shrink: 0;
+	}
+
 	.exp-company {
 		font-weight: 600;
 		color: var(--color-text);
@@ -782,11 +791,11 @@ const experience = [
 		background: rgba(255, 255, 255, 0.05);
 		padding: 0.15rem 0.5rem;
 		border-radius: var(--radius-sm);
-		margin-left: 0.5rem;
 	}
 
 	.exp-role {
 		color: var(--color-text-muted);
+		text-align: right;
 	}
 
 	/* FAQ */
@@ -939,7 +948,15 @@ const experience = [
 
 		.experience-item {
 			flex-direction: column;
+			align-items: flex-start;
 			gap: var(--space-xs);
+		}
+
+		.exp-left {
+			flex-wrap: wrap;
+		}
+
+		.exp-role {
 			text-align: left;
 		}
 
