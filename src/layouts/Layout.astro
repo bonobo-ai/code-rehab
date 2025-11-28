@@ -6,7 +6,7 @@ interface Props {
 
 const {
 	title = "Code Rehab | Fix Your Vibe Coded App",
-	description = "Your AI-built app looks great but doesn't actually work? Code Rehab helps non-tech founders fix their Lovable, Cursor, and Bolt apps. Expert debugging, backend fixes, and integrations."
+	description = "Remote senior developer helping non-tech founders fix their AI-built apps. Expert in debugging Lovable, Cursor, and Bolt apps. Based in Southeast Asia, available for startups worldwide."
 } = Astro.props;
 
 const siteUrl = "https://coderehab.me";
@@ -25,7 +25,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="vibe coding, lovable app fix, cursor ai fix, bolt app bugs, ai coded app not working, fix ai generated code, vibe coding problems, ai app debugging, lovable debugging, no-code to real code, ai prototype to production" />
+		<meta name="keywords" content="vibe coding, lovable app fix, cursor ai fix, bolt app bugs, ai coded app not working, fix ai generated code, remote developer, hire developer bali, hire developer thailand, remote developer southeast asia, developer singapore, developer vietnam, developer philippines, developer malaysia, digital nomad developer, startup developer asia, freelance react developer, remote full stack developer" />
 		<meta name="author" content="Valentino Giudice" />
 		<link rel="canonical" href={siteUrl} />
 
@@ -49,7 +49,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 			"@context": "https://schema.org",
 			"@type": "ProfessionalService",
 			"name": "Code Rehab",
-			"description": "Expert service helping non-technical founders fix and debug their vibe-coded applications built with Lovable, Cursor, Bolt, and other AI coding tools.",
+			"description": "Remote senior developer helping non-technical founders fix and debug their vibe-coded applications built with Lovable, Cursor, Bolt, and other AI coding tools. Based in Southeast Asia, serving startups worldwide.",
 			"url": siteUrl,
 			"provider": {
 				"@type": "Person",
@@ -58,10 +58,23 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 				"url": "https://www.linkedin.com/in/valentinogiudice/",
 				"sameAs": [
 					"https://www.linkedin.com/in/valentinogiudice/"
-				]
+				],
+				"workLocation": {
+					"@type": "Place",
+					"name": "Southeast Asia"
+				}
 			},
-			"areaServed": "Worldwide",
-			"serviceType": ["Web Application Debugging", "Mobile App Debugging", "AI Code Remediation", "Backend Development", "API Integration"],
+			"areaServed": [
+				{ "@type": "Place", "name": "Worldwide" },
+				{ "@type": "Country", "name": "Indonesia" },
+				{ "@type": "Country", "name": "Thailand" },
+				{ "@type": "Country", "name": "Vietnam" },
+				{ "@type": "Country", "name": "Philippines" },
+				{ "@type": "Country", "name": "Singapore" },
+				{ "@type": "Country", "name": "Malaysia" },
+				{ "@type": "Place", "name": "Bali" }
+			],
+			"serviceType": ["Web Application Debugging", "Mobile App Debugging", "AI Code Remediation", "App Development", "Payment Integration", "Remote Development"],
 			"knowsAbout": ["Vibe Coding", "Lovable", "Cursor", "Bolt", "React", "Next.js", "Node.js", "TypeScript", "React Native"]
 		})} />
 
@@ -75,7 +88,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 					"name": "Why does my Lovable app look like it works but actually doesn't?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "AI coding tools often create convincing UIs with mocked data and simulated functionality. The interface appears functional, but there's no real backend logic, database connections, or API integrations. Code Rehab helps you identify what's fake and build the real functionality."
+						"text": "AI coding tools often create convincing interfaces with fake data and simulated functionality. The app appears functional, but nothing actually connects or saves. Code Rehab helps you identify what's fake and build the real functionality."
 					}
 				},
 				{
@@ -83,7 +96,7 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 					"name": "Can you fix my vibe coded app?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Yes. With 10+ years of experience in React, Node.js, and TypeScript, I specialize in auditing and fixing apps built with Lovable, Cursor, Bolt, and similar AI tools. I identify mocked functionality, implement real backend logic, and ensure your app actually works."
+						"text": "Yes. With 10+ years of experience, I specialize in auditing and fixing apps built with Lovable, Cursor, Bolt, and similar AI tools. I identify what's fake, build the real functionality, and ensure your app actually works."
 					}
 				},
 				{
@@ -91,7 +104,15 @@ const ogImage = `${siteUrl}/og-image.jpg`;
 					"name": "What is vibe coding?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Vibe coding is building apps by prompting AI tools like Lovable, Cursor, or Bolt. While great for prototyping, these tools often create facades—apps that look functional but lack real backend logic, proper error handling, and production-ready code."
+						"text": "Vibe coding is building apps by prompting AI tools like Lovable, Cursor, or Bolt. While great for prototyping, these tools often create facades—apps that look functional but don't actually work behind the scenes."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Do you work remotely with startups in Southeast Asia?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes! I'm based in Southeast Asia and work remotely with digital entrepreneurs and startups across Bali, Thailand, Singapore, Vietnam, Philippines, Malaysia, and worldwide. Being in the SEA timezone makes collaboration easy for founders in the region."
 					}
 				}
 			]
