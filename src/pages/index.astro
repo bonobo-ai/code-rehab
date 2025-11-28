@@ -1,9 +1,945 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const linkedInUrl = "https://www.linkedin.com/in/valentinogiudice/";
+
+const problems = [
+	{
+		icon: "🎭",
+		title: "It's All a Facade",
+		description: "Your app displays data beautifully, but it's all hardcoded or mocked. Nothing actually saves to a database."
+	},
+	{
+		icon: "💳",
+		title: "Payments Don't Work",
+		description: "Stripe integration looks complete, but no actual transactions happen. Users can't pay, you can't get paid."
+	},
+	{
+		icon: "🔐",
+		title: "Auth is Broken",
+		description: "Login seems to work, but there's no real session management. Anyone can access anything."
+	},
+	{
+		icon: "🔌",
+		title: "APIs Return Nothing",
+		description: "The app calls APIs that don't exist or return fake data. Real integrations were never built."
+	},
+	{
+		icon: "📧",
+		title: "Emails Never Send",
+		description: "Confirmation emails, password resets, notifications—all fake. No email service was ever connected."
+	},
+	{
+		icon: "🐛",
+		title: "Errors Everywhere",
+		description: "Works on your machine, crashes for everyone else. No error handling, no edge cases covered."
+	}
+];
+
+const services = [
+	{
+		title: "Code Audit",
+		description: "I'll analyze your vibe-coded app and identify what's real vs. what's mocked or broken."
+	},
+	{
+		title: "Backend Implementation",
+		description: "Build the actual backend logic, database connections, and API integrations your app is missing."
+	},
+	{
+		title: "Payment Integration",
+		description: "Properly connect Stripe, PayPal, or other payment processors so you can actually get paid."
+	},
+	{
+		title: "Authentication Fix",
+		description: "Implement real user authentication with proper session management and security."
+	},
+	{
+		title: "Bug Fixing",
+		description: "Track down and fix the bugs that AI tools created but couldn't solve."
+	},
+	{
+		title: "Production Ready",
+		description: "Get your app ready for real users with proper error handling, logging, and deployment."
+	}
+];
+
+const experience = [
+	{ company: "BookRetreats.com", role: "Senior Next.js Developer", tech: "Next.js, React, SWR" },
+	{ company: "DesertCart", role: "Senior React Developer", tech: "Next.js, React Native, TypeScript" },
+	{ company: "TeamKeys", role: "Lead React Native Developer", tech: "React Native, TypeScript" },
+	{ company: "Secret Source", role: "Lead React Developer", tech: "React, Redux, TypeScript" },
+	{ company: "European Space Agency", role: "Full Stack Developer", tech: "React, Django, PostgreSQL" }
+];
 ---
 
 <Layout>
 	<main>
-		<h1>code-rehab</h1>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-badge">For Vibe Coders Who Hit a Wall</div>
+				<h1>Your AI-Built App Looks Great.<br/><span class="highlight">But Does It Actually Work?</span></h1>
+				<p class="hero-subtitle">
+					You used Lovable, Cursor, or Bolt to build your app. The UI is perfect.
+					But nothing actually works—payments fail, data doesn't save, and bugs are everywhere.
+					<strong>I fix that.</strong>
+				</p>
+				<div class="hero-cta">
+					<a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+						Check My Profile
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+						</svg>
+					</a>
+					<a href="/contact" class="btn btn-primary">
+						Get Help Now
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M5 12h14M12 5l7 7-7 7"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Problem Section -->
+		<section id="problems" class="problems">
+			<div class="container">
+				<h2>Sounds Familiar?</h2>
+				<p class="section-subtitle">
+					AI coding tools are amazing at creating beautiful interfaces.
+					But they often build facades—apps that <em>look</em> functional but aren't.
+				</p>
+				<div class="problems-grid">
+					{problems.map((problem) => (
+						<article class="problem-card">
+							<span class="problem-icon">{problem.icon}</span>
+							<h3>{problem.title}</h3>
+							<p>{problem.description}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- The Real Problem Section -->
+		<section class="explainer">
+			<div class="container">
+				<h2>The App Looks Perfect. <span class="highlight">So Why Doesn't It Work?</span></h2>
+				<p class="section-subtitle">
+					You've shown it to friends, they're impressed. But when real users try it...
+				</p>
+				<div class="explainer-comparison">
+					<div class="comparison-card comparison-looks">
+						<div class="comparison-header">
+							<span class="comparison-icon">✨</span>
+							<h4>What You See</h4>
+						</div>
+						<ul>
+							<li>Beautiful UI that looks professional</li>
+							<li>Forms that accept your input</li>
+							<li>Buttons that respond when clicked</li>
+							<li>Data displayed perfectly in tables</li>
+							<li>Payment flow that looks complete</li>
+						</ul>
+					</div>
+					<div class="comparison-card comparison-reality">
+						<div class="comparison-header">
+							<span class="comparison-icon">💀</span>
+							<h4>What's Actually Happening</h4>
+						</div>
+						<ul>
+							<li>Data is hardcoded or mocked</li>
+							<li>Nothing saves to a database</li>
+							<li>API calls go nowhere</li>
+							<li>Sessions don't persist</li>
+							<li>Payments never process</li>
+						</ul>
+					</div>
+				</div>
+				<p class="explainer-conclusion">
+					AI tools like <strong>Lovable</strong>, <strong>Cursor</strong>, and <strong>Bolt</strong> are incredible for prototyping.
+					But they often create convincing facades—apps that <em>demo</em> well but can't handle real users.
+				</p>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="services">
+			<div class="container">
+				<h2>How I Can Help</h2>
+				<p class="section-subtitle">
+					I turn your AI prototype into a working product.
+				</p>
+				<div class="services-grid">
+					{services.map((service) => (
+						<article class="service-card">
+							<h3>{service.title}</h3>
+							<p>{service.description}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section class="about">
+			<div class="container">
+				<div class="about-content">
+					<div class="about-image">
+						<img src="/valentino.jpg" alt="Valentino Giudice - Senior Full Stack Developer" width="300" height="300" />
+					</div>
+					<div class="about-text">
+						<h2>Hi, I'm Valentino</h2>
+						<p class="about-headline">
+							Senior Full-Stack Developer with 10+ years helping companies build and fix web and mobile applications.
+						</p>
+						<p>
+							I've worked with startups and enterprises across the US, EU, and UAE—from
+							the European Space Agency to e-commerce platforms shipping worldwide.
+						</p>
+						<p>
+							My stack: <strong>React, Next.js, Node.js, TypeScript, React Native</strong>.
+							I know exactly where AI tools cut corners because I've built the real thing hundreds of times.
+						</p>
+						<div class="experience-list">
+							<h4>Recent Experience</h4>
+							{experience.map((exp) => (
+								<div class="experience-item">
+									<span class="exp-company">{exp.company}</span>
+									<span class="exp-role">{exp.role}</span>
+								</div>
+							))}
+						</div>
+						<a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							View Full Profile on LinkedIn
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ Section -->
+		<section class="faq">
+			<div class="container">
+				<h2>Frequently Asked Questions</h2>
+				<div class="faq-list">
+					<details class="faq-item">
+						<summary>Why does my Lovable/Cursor app look like it works but doesn't?</summary>
+						<p>
+							AI coding tools prioritize visual output. They're excellent at creating UIs that
+							<em>demonstrate</em> functionality. But to save time and complexity, they often
+							mock data, skip backend logic, and simulate interactions. The result looks
+							convincing but falls apart when real users try to use it.
+						</p>
+					</details>
+					<details class="faq-item">
+						<summary>Can you fix my app without rebuilding it?</summary>
+						<p>
+							Usually, yes. I audit what AI built, identify what's real vs. mocked, and
+							implement the missing pieces. Most apps need backend work, not a full rebuild.
+							I preserve what works and fix what doesn't.
+						</p>
+					</details>
+					<details class="faq-item">
+						<summary>What tools do you work with?</summary>
+						<p>
+							I fix apps built with Lovable, Cursor, Bolt, v0, Replit Agent, and similar
+							AI coding tools. On the tech side, I specialize in React, Next.js, Node.js,
+							TypeScript, and React Native—the same stack these AI tools generate.
+						</p>
+					</details>
+					<details class="faq-item">
+						<summary>How do we get started?</summary>
+						<p>
+							Connect with me on LinkedIn and send a message describing your app and what's
+							not working. I'll review your situation and we can discuss next steps.
+							No commitment required for an initial conversation.
+						</p>
+					</details>
+					<details class="faq-item">
+						<summary>Do you work with non-technical founders?</summary>
+						<p>
+							Absolutely—that's my specialty. I'll explain what's wrong in plain English,
+							not jargon. You don't need to understand code to work with me. I'll handle
+							the technical side while keeping you informed of progress.
+						</p>
+					</details>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="cta">
+			<div class="container">
+				<h2>Ready to Make Your App Actually Work?</h2>
+				<p>
+					Stop fighting with AI-generated bugs. Let's turn your prototype into a real product.
+				</p>
+				<a href="/contact" class="btn btn-primary btn-large">
+					Get Help Now
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M5 12h14M12 5l7 7-7 7"/>
+					</svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2025 Code Rehab. Built by <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">Valentino Giudice</a>.</p>
+			</div>
+		</footer>
 	</main>
 </Layout>
+
+<style>
+	.container {
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0 var(--space-lg);
+	}
+
+	/* Hero */
+	.hero {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding: var(--space-3xl) 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: var(--gradient-glow);
+		pointer-events: none;
+	}
+
+	.hero::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 800px;
+		height: 800px;
+		transform: translate(-50%, -50%);
+		background: radial-gradient(circle, rgba(45, 212, 191, 0.08) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.hero .container {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-sm) var(--space-lg);
+		background: var(--color-bg-tertiary);
+		border: 1px solid var(--color-border-accent);
+		border-radius: var(--radius-full);
+		font-size: 0.875rem;
+		color: var(--color-accent);
+		margin-bottom: var(--space-xl);
+		font-weight: 500;
+	}
+
+	.hero-badge::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		background: var(--color-accent);
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% { opacity: 1; transform: scale(1); }
+		50% { opacity: 0.5; transform: scale(1.2); }
+	}
+
+	.hero h1 {
+		font-size: clamp(2.75rem, 7vw, 4.5rem);
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0 0 var(--space-xl);
+		letter-spacing: -0.02em;
+	}
+
+	.highlight {
+		background: linear-gradient(135deg, var(--color-teal-300) 0%, var(--color-teal-500) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 580px;
+		margin-bottom: var(--space-2xl);
+		line-height: 1.7;
+	}
+
+	.hero-subtitle strong {
+		color: var(--color-accent);
+		font-weight: 600;
+	}
+
+	.hero-cta {
+		display: flex;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
+		padding: var(--space-md) var(--space-xl);
+		border-radius: var(--radius-lg);
+		font-weight: 600;
+		font-size: 1rem;
+		transition: all var(--transition-base);
+		cursor: pointer;
+		border: none;
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: var(--gradient-teal);
+		color: var(--color-teal-950);
+		box-shadow: var(--shadow-md), 0 0 20px rgba(45, 212, 191, 0.2);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg), 0 0 30px rgba(45, 212, 191, 0.3);
+		color: var(--color-teal-950);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		border: 1px solid var(--color-border);
+		color: var(--color-text);
+		backdrop-filter: blur(10px);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+		background: rgba(45, 212, 191, 0.05);
+	}
+
+	.btn-large {
+		padding: var(--space-lg) var(--space-2xl);
+		font-size: 1.125rem;
+	}
+
+	/* Sections */
+	section {
+		padding: var(--space-3xl) 0;
+		position: relative;
+	}
+
+	section h2 {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 700;
+		margin: 0 0 var(--space-md);
+		text-align: center;
+		letter-spacing: -0.02em;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 1.125rem;
+		max-width: 600px;
+		margin: 0 auto var(--space-3xl);
+		line-height: 1.7;
+	}
+
+	/* Problems */
+	.problems {
+		background: var(--color-bg-secondary);
+	}
+
+	.problems::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+	}
+
+	.problems-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: var(--space-lg);
+	}
+
+	.problem-card {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+		transition: all var(--transition-base);
+		position: relative;
+	}
+
+	.problem-card:hover {
+		border-color: rgba(45, 212, 191, 0.5);
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-glow);
+	}
+
+	.problem-icon {
+		font-size: 2.5rem;
+		display: block;
+		margin-bottom: var(--space-lg);
+	}
+
+	.problem-card h3 {
+		font-size: 1.25rem;
+		margin: 0 0 var(--space-sm);
+		color: var(--color-text);
+		font-weight: 600;
+	}
+
+	.problem-card p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	/* Explainer */
+	.explainer {
+		background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+	}
+
+	.explainer h2 {
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.explainer-comparison {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-lg);
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.comparison-card {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+		transition: all var(--transition-base);
+		position: relative;
+	}
+
+	.comparison-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-glow);
+		border-color: rgba(45, 212, 191, 0.5);
+	}
+
+	.comparison-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		margin-bottom: var(--space-lg);
+	}
+
+	.comparison-icon {
+		font-size: 2rem;
+	}
+
+	.comparison-header h4 {
+		font-size: 1.125rem;
+		margin: 0;
+		font-weight: 600;
+		color: var(--color-accent);
+	}
+
+	.comparison-card ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.comparison-card li {
+		padding: var(--space-sm) 0;
+		padding-left: var(--space-xl);
+		position: relative;
+		font-size: 0.95rem;
+		color: var(--color-text-muted);
+	}
+
+	.comparison-card li::before {
+		position: absolute;
+		left: 0;
+		font-weight: 700;
+		color: var(--color-accent);
+	}
+
+	.comparison-looks li::before {
+		content: "✓";
+	}
+
+	.comparison-reality li::before {
+		content: "✗";
+	}
+
+	.explainer-conclusion {
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 1.05rem;
+		max-width: 700px;
+		margin: var(--space-2xl) auto 0;
+		line-height: 1.7;
+	}
+
+	.explainer-conclusion strong {
+		color: var(--color-accent);
+	}
+
+	.explainer-conclusion em {
+		color: var(--color-text);
+		font-style: normal;
+	}
+
+	/* Services */
+	.services {
+		background: var(--color-bg-secondary);
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: var(--space-lg);
+	}
+
+	.service-card {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+		transition: all var(--transition-base);
+		position: relative;
+	}
+
+	.service-card:hover {
+		border-color: rgba(45, 212, 191, 0.5);
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-glow);
+	}
+
+	.service-card h3 {
+		font-size: 1.25rem;
+		margin: 0 0 var(--space-sm);
+		color: var(--color-accent);
+		font-weight: 600;
+	}
+
+	.service-card p {
+		margin: 0;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* About */
+	.about {
+		background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+		position: relative;
+	}
+
+	.about::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-3xl);
+		align-items: start;
+	}
+
+	.about-image {
+		position: relative;
+	}
+
+	.about-image::before {
+		content: '';
+		position: absolute;
+		inset: -4px;
+		background: var(--gradient-teal);
+		border-radius: calc(var(--radius-xl) + 4px);
+		opacity: 0.5;
+		z-index: -1;
+	}
+
+	.about-image img {
+		width: 280px;
+		height: 280px;
+		border-radius: var(--radius-xl);
+		object-fit: cover;
+		display: block;
+	}
+
+	.about-text h2 {
+		text-align: left;
+		margin-bottom: var(--space-sm);
+	}
+
+	.about-headline {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-lg);
+		line-height: 1.6;
+	}
+
+	.about-text p {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	.about-text strong {
+		color: var(--color-accent);
+	}
+
+	.experience-list {
+		margin: var(--space-xl) 0;
+		padding: var(--space-lg);
+		background: var(--color-bg-tertiary);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-border);
+	}
+
+	.experience-list h4 {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-accent);
+		margin: 0 0 var(--space-md);
+		font-weight: 600;
+	}
+
+	.experience-item {
+		display: flex;
+		justify-content: space-between;
+		padding: var(--space-sm) 0;
+		border-bottom: 1px solid var(--color-border);
+		font-size: 0.9rem;
+	}
+
+	.experience-item:last-child {
+		border-bottom: none;
+	}
+
+	.exp-company {
+		font-weight: 600;
+		color: var(--color-text);
+	}
+
+	.exp-role {
+		color: var(--color-text-muted);
+	}
+
+	/* FAQ */
+	.faq {
+		background: var(--color-bg);
+	}
+
+	.faq-list {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+
+	.faq-item {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-lg);
+		margin-bottom: var(--space-md);
+		overflow: hidden;
+		transition: all var(--transition-base);
+	}
+
+	.faq-item:hover {
+		border-color: var(--color-border-accent);
+	}
+
+	.faq-item[open] {
+		background: var(--color-bg-secondary);
+	}
+
+	.faq-item summary {
+		padding: var(--space-lg);
+		cursor: pointer;
+		font-weight: 500;
+		font-size: 1.05rem;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-item summary::after {
+		content: "+";
+		font-size: 1.5rem;
+		color: var(--color-accent);
+		transition: transform var(--transition-base);
+		flex-shrink: 0;
+	}
+
+	.faq-item[open] summary::after {
+		transform: rotate(45deg);
+	}
+
+	.faq-item p {
+		padding: 0 var(--space-lg) var(--space-lg);
+		margin: 0;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	/* CTA */
+	.cta {
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		padding: var(--space-3xl) 0;
+	}
+
+	.cta::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.1) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.cta .container {
+		position: relative;
+		z-index: 1;
+	}
+
+	.cta h2 {
+		margin-bottom: var(--space-lg);
+	}
+
+	.cta p {
+		color: var(--color-text-muted);
+		font-size: 1.25rem;
+		margin-bottom: var(--space-2xl);
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Footer */
+	.footer {
+		padding: var(--space-xl) 0;
+		text-align: center;
+		border-top: 1px solid var(--color-border);
+		background: var(--color-bg-secondary);
+	}
+
+	.footer p {
+		margin: 0;
+		color: var(--color-text-subtle);
+		font-size: 0.875rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero {
+			min-height: auto;
+			padding: var(--space-3xl) 0;
+		}
+
+		.hero h1 {
+			font-size: 2.25rem;
+		}
+
+		section {
+			padding: var(--space-2xl) 0;
+		}
+
+		.about-content {
+			grid-template-columns: 1fr;
+			text-align: center;
+			gap: var(--space-xl);
+		}
+
+		.about-image {
+			display: flex;
+			justify-content: center;
+		}
+
+		.about-image img {
+			width: 200px;
+			height: 200px;
+		}
+
+		.about-text h2 {
+			text-align: center;
+		}
+
+		.experience-item {
+			flex-direction: column;
+			gap: var(--space-xs);
+			text-align: left;
+		}
+
+		.explainer-comparison {
+			grid-template-columns: 1fr;
+		}
+
+		.problems-grid,
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-cta {
+			flex-direction: column;
+		}
+
+		.btn {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+</style>

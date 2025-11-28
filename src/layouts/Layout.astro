@@ -1,22 +1,216 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Code Rehab | Fix Your Vibe Coded App",
+	description = "Your AI-built app looks great but doesn't actually work? Code Rehab helps non-tech founders fix their Lovable, Cursor, and Bolt apps. Expert debugging, backend fixes, and integrations."
+} = Astro.props;
+
+const siteUrl = "https://coderehab.me";
+const ogImage = `${siteUrl}/og-image.jpg`;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>code-rehab</title>
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="vibe coding, lovable app fix, cursor ai fix, bolt app bugs, ai coded app not working, fix ai generated code, vibe coding problems, ai app debugging, lovable debugging, no-code to real code, ai prototype to production" />
+		<meta name="author" content="Valentino Giudice" />
+		<link rel="canonical" href={siteUrl} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="Code Rehab" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={siteUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Structured Data for AI Search -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "Code Rehab",
+			"description": "Expert service helping non-technical founders fix and debug their vibe-coded applications built with Lovable, Cursor, Bolt, and other AI coding tools.",
+			"url": siteUrl,
+			"provider": {
+				"@type": "Person",
+				"name": "Valentino Giudice",
+				"jobTitle": "Senior Full-Stack Developer",
+				"url": "https://www.linkedin.com/in/valentinogiudice/",
+				"sameAs": [
+					"https://www.linkedin.com/in/valentinogiudice/"
+				]
+			},
+			"areaServed": "Worldwide",
+			"serviceType": ["Web Application Debugging", "Mobile App Debugging", "AI Code Remediation", "Backend Development", "API Integration"],
+			"knowsAbout": ["Vibe Coding", "Lovable", "Cursor", "Bolt", "React", "Next.js", "Node.js", "TypeScript", "React Native"]
+		})} />
+
+		<!-- FAQ Schema for AI Search -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "Why does my Lovable app look like it works but actually doesn't?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "AI coding tools often create convincing UIs with mocked data and simulated functionality. The interface appears functional, but there's no real backend logic, database connections, or API integrations. Code Rehab helps you identify what's fake and build the real functionality."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Can you fix my vibe coded app?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes. With 10+ years of experience in React, Node.js, and TypeScript, I specialize in auditing and fixing apps built with Lovable, Cursor, Bolt, and similar AI tools. I identify mocked functionality, implement real backend logic, and ensure your app actually works."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "What is vibe coding?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Vibe coding is building apps by prompting AI tools like Lovable, Cursor, or Bolt. While great for prototyping, these tools often create facades—apps that look functional but lack real backend logic, proper error handling, and production-ready code."
+					}
+				}
+			]
+		})} />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	:root {
+		/* Teal color palette */
+		--color-teal-50: #f0fdfa;
+		--color-teal-100: #ccfbf1;
+		--color-teal-200: #99f6e4;
+		--color-teal-300: #5eead4;
+		--color-teal-400: #2dd4bf;
+		--color-teal-500: #14b8a6;
+		--color-teal-600: #0d9488;
+		--color-teal-700: #0f766e;
+		--color-teal-800: #115e59;
+		--color-teal-900: #134e4a;
+		--color-teal-950: #042f2e;
+
+		/* Semantic colors */
+		--color-bg: #030712;
+		--color-bg-secondary: #070d17;
+		--color-bg-tertiary: #0f172a;
+		--color-bg-card: #0c1322;
+		--color-text: #f9fafb;
+		--color-text-muted: #9ca3af;
+		--color-text-subtle: #6b7280;
+		--color-accent: var(--color-teal-400);
+		--color-accent-hover: var(--color-teal-300);
+		--color-accent-muted: var(--color-teal-500);
+		--color-border: rgba(255, 255, 255, 0.08);
+		--color-border-accent: rgba(45, 212, 191, 0.3);
+		--color-danger: #f87171;
+		--color-danger-muted: rgba(248, 113, 113, 0.15);
+		--color-success: #34d399;
+		--color-success-muted: rgba(52, 211, 153, 0.15);
+
+		/* Gradients */
+		--gradient-teal: linear-gradient(135deg, var(--color-teal-400) 0%, var(--color-teal-600) 100%);
+		--gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 212, 191, 0.15) 0%, transparent 70%);
+		--gradient-card: linear-gradient(135deg, rgba(45, 212, 191, 0.05) 0%, transparent 100%);
+
+		/* Shadows */
+		--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+		--shadow-glow: 0 0 40px rgba(45, 212, 191, 0.15);
+
+		/* Spacing */
+		--space-xs: 0.25rem;
+		--space-sm: 0.5rem;
+		--space-md: 1rem;
+		--space-lg: 1.5rem;
+		--space-xl: 2rem;
+		--space-2xl: 3rem;
+		--space-3xl: 4rem;
+
+		/* Border radius */
+		--radius-sm: 0.375rem;
+		--radius-md: 0.75rem;
+		--radius-lg: 1rem;
+		--radius-xl: 1.5rem;
+		--radius-full: 9999px;
+
+		/* Transitions */
+		--transition-fast: 150ms ease;
+		--transition-base: 200ms ease;
+		--transition-slow: 300ms ease;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	html, body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Inter', system-ui, sans-serif;
+		background: var(--color-bg);
+		color: var(--color-text);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	a {
+		color: var(--color-accent);
+		text-decoration: none;
+		transition: color var(--transition-base);
+	}
+
+	a:hover {
+		color: var(--color-accent-hover);
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	::selection {
+		background: var(--color-teal-500);
+		color: var(--color-teal-950);
 	}
 </style>

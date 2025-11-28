@@ -1,0 +1,580 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const linkedInUrl = "https://www.linkedin.com/in/valentinogiudice/";
+
+const subjects = [
+	{ value: "code-audit", label: "Code Audit - Review my vibe-coded app" },
+	{ value: "bug-fix", label: "Bug Fixing - Something's broken" },
+	{ value: "backend", label: "Backend Implementation - Need real functionality" },
+	{ value: "payments", label: "Payment Integration - Stripe/PayPal setup" },
+	{ value: "auth", label: "Authentication - Login/signup not working" },
+	{ value: "deployment", label: "Deployment - Help getting to production" },
+	{ value: "other", label: "Other - Something else" }
+];
+---
+
+<Layout title="Contact | Code Rehab" description="Get help fixing your vibe-coded app. Contact Valentino Giudice for expert debugging and development services.">
+	<main>
+		<section class="contact-hero">
+			<div class="container">
+				<a href="/" class="back-link">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M19 12H5M12 19l-7-7 7-7"/>
+					</svg>
+					Back to Home
+				</a>
+				<h1>Let's Fix Your App</h1>
+				<p class="hero-subtitle">
+					Tell me about your project and what's not working. I'll get back to you within 24 hours.
+				</p>
+			</div>
+		</section>
+
+		<section class="contact-form-section">
+			<div class="container">
+				<div class="contact-grid">
+					<div class="form-card">
+						<form
+							action="https://formsubmit.co/bonobo.app.ai@gmail.com"
+							method="POST"
+							class="contact-form"
+						>
+							<!-- FormSubmit configuration -->
+							<input type="hidden" name="_subject" value="New Code Rehab Inquiry">
+							<input type="hidden" name="_captcha" value="false">
+							<input type="hidden" name="_template" value="table">
+							<input type="hidden" name="_next" value="https://coderehab.me/contact?success=true">
+
+							<!-- Honeypot for spam -->
+							<input type="text" name="_honey" style="display:none">
+
+							<div class="form-group">
+								<label for="name">Your Name</label>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									required
+									placeholder="John Doe"
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="email">Email Address</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+									placeholder="john@example.com"
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="subject">What do you need help with?</label>
+								<select id="subject" name="subject" required>
+									<option value="" disabled selected>Select a topic...</option>
+									{subjects.map((subject) => (
+										<option value={subject.value}>{subject.label}</option>
+									))}
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="tool">Which AI tool did you use?</label>
+								<input
+									type="text"
+									id="tool"
+									name="tool"
+									placeholder="e.g., Lovable, Cursor, Bolt, v0..."
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="url">App URL (if available)</label>
+								<input
+									type="url"
+									id="url"
+									name="url"
+									placeholder="https://your-app.vercel.app"
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="message">Describe Your Issue</label>
+								<textarea
+									id="message"
+									name="message"
+									rows="5"
+									required
+									placeholder="Tell me what's happening, what you expected, and any error messages you're seeing..."
+								></textarea>
+							</div>
+
+							<button type="submit" class="btn btn-primary btn-large btn-full">
+								Send Message
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+								</svg>
+							</button>
+						</form>
+					</div>
+
+					<aside class="contact-info">
+						<div class="info-card">
+							<h3>Prefer LinkedIn?</h3>
+							<p>Connect with me directly and view my full experience and recommendations.</p>
+							<a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+								View Profile
+								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+								</svg>
+							</a>
+						</div>
+
+						<div class="info-card">
+							<h3>What Happens Next?</h3>
+							<ul class="timeline">
+								<li>
+									<span class="step">1</span>
+									<div>
+										<strong>I review your message</strong>
+										<p>Usually within 24 hours</p>
+									</div>
+								</li>
+								<li>
+									<span class="step">2</span>
+									<div>
+										<strong>Quick discovery call</strong>
+										<p>15-30 min to understand your app</p>
+									</div>
+								</li>
+								<li>
+									<span class="step">3</span>
+									<div>
+										<strong>I audit your code</strong>
+										<p>Identify what's real vs. mocked</p>
+									</div>
+								</li>
+								<li>
+									<span class="step">4</span>
+									<div>
+										<strong>Clear action plan</strong>
+										<p>What needs to be fixed and how</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="info-card trust-signals">
+							<h3>Why Work With Me</h3>
+							<ul class="trust-list">
+								<li>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+										<polyline points="22 4 12 14.01 9 11.01"/>
+									</svg>
+									10+ years professional experience
+								</li>
+								<li>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+										<polyline points="22 4 12 14.01 9 11.01"/>
+									</svg>
+									Worked across US, EU, and UAE
+								</li>
+								<li>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+										<polyline points="22 4 12 14.01 9 11.01"/>
+									</svg>
+									React, Next.js, Node.js, TypeScript
+								</li>
+								<li>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+										<polyline points="22 4 12 14.01 9 11.01"/>
+									</svg>
+									Non-tech founder friendly
+								</li>
+							</ul>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2025 Code Rehab. Built by <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">Valentino Giudice</a>.</p>
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<script>
+	// Check for success parameter
+	const urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.get('success') === 'true') {
+		const form = document.querySelector('.contact-form');
+		if (form) {
+			form.innerHTML = `
+				<div class="success-message">
+					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+						<polyline points="22 4 12 14.01 9 11.01"/>
+					</svg>
+					<h2>Message Sent!</h2>
+					<p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
+					<a href="/" class="btn btn-primary">Back to Home</a>
+				</div>
+			`;
+		}
+		// Clean URL
+		window.history.replaceState({}, document.title, window.location.pathname);
+	}
+</script>
+
+<style>
+	.container {
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0 var(--space-lg);
+	}
+
+	/* Hero */
+	.contact-hero {
+		padding: var(--space-3xl) 0 var(--space-xl);
+		position: relative;
+	}
+
+	.contact-hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: var(--gradient-glow);
+		pointer-events: none;
+	}
+
+	.contact-hero .container {
+		position: relative;
+		z-index: 1;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-sm);
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		margin-bottom: var(--space-xl);
+		transition: color var(--transition-base);
+	}
+
+	.back-link:hover {
+		color: var(--color-accent);
+	}
+
+	.contact-hero h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		font-weight: 700;
+		margin: 0 0 var(--space-md);
+		letter-spacing: -0.02em;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		max-width: 500px;
+	}
+
+	/* Form Section */
+	.contact-form-section {
+		padding: var(--space-xl) 0 var(--space-3xl);
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		gap: var(--space-2xl);
+		align-items: start;
+	}
+
+	/* Form Card */
+	.form-card {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-xl);
+		padding: var(--space-2xl);
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.form-group label {
+		font-weight: 500;
+		font-size: 0.95rem;
+		color: var(--color-text);
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		padding: var(--space-md);
+		background: var(--color-bg-tertiary);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		color: var(--color-text);
+		font-size: 1rem;
+		font-family: inherit;
+		transition: all var(--transition-base);
+	}
+
+	.form-group input::placeholder,
+	.form-group textarea::placeholder {
+		color: var(--color-text-subtle);
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+	}
+
+	.form-group select {
+		cursor: pointer;
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right var(--space-md) center;
+		background-size: 1.25rem;
+		padding-right: var(--space-3xl);
+	}
+
+	.form-group select option {
+		background: var(--color-bg-tertiary);
+		color: var(--color-text);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
+		padding: var(--space-md) var(--space-xl);
+		border-radius: var(--radius-lg);
+		font-weight: 600;
+		font-size: 1rem;
+		transition: all var(--transition-base);
+		cursor: pointer;
+		border: none;
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: var(--gradient-teal);
+		color: var(--color-teal-950);
+		box-shadow: var(--shadow-md), 0 0 20px rgba(45, 212, 191, 0.2);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg), 0 0 30px rgba(45, 212, 191, 0.3);
+		color: var(--color-teal-950);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		border: 1px solid var(--color-border);
+		color: var(--color-text);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+		background: rgba(45, 212, 191, 0.05);
+	}
+
+	.btn-large {
+		padding: var(--space-lg) var(--space-2xl);
+		font-size: 1.125rem;
+	}
+
+	.btn-full {
+		width: 100%;
+	}
+
+	/* Info Cards */
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
+	.info-card {
+		background: var(--color-bg-card);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+	}
+
+	.info-card h3 {
+		font-size: 1.125rem;
+		margin: 0 0 var(--space-md);
+		color: var(--color-text);
+	}
+
+	.info-card p {
+		color: var(--color-text-muted);
+		margin: 0 0 var(--space-lg);
+		line-height: 1.6;
+	}
+
+	/* Timeline */
+	.timeline {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.timeline li {
+		display: flex;
+		gap: var(--space-md);
+		padding-bottom: var(--space-md);
+		position: relative;
+	}
+
+	.timeline li:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		left: 15px;
+		top: 36px;
+		bottom: 0;
+		width: 2px;
+		background: var(--color-border);
+	}
+
+	.timeline .step {
+		width: 32px;
+		height: 32px;
+		background: var(--gradient-teal);
+		color: var(--color-teal-950);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 0.875rem;
+		flex-shrink: 0;
+	}
+
+	.timeline strong {
+		display: block;
+		font-size: 0.95rem;
+		margin-bottom: var(--space-xs);
+	}
+
+	.timeline p {
+		font-size: 0.85rem;
+		color: var(--color-text-subtle);
+		margin: 0;
+	}
+
+	/* Trust List */
+	.trust-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.trust-list li {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-sm) 0;
+		font-size: 0.95rem;
+		color: var(--color-text-muted);
+	}
+
+	.trust-list svg {
+		color: var(--color-accent);
+		flex-shrink: 0;
+	}
+
+	/* Success Message */
+	.success-message {
+		text-align: center;
+		padding: var(--space-2xl);
+	}
+
+	.success-message svg {
+		color: var(--color-success);
+		margin-bottom: var(--space-lg);
+	}
+
+	.success-message h2 {
+		font-size: 1.75rem;
+		margin: 0 0 var(--space-md);
+	}
+
+	.success-message p {
+		color: var(--color-text-muted);
+		margin: 0 0 var(--space-xl);
+	}
+
+	/* Footer */
+	.footer {
+		padding: var(--space-xl) 0;
+		text-align: center;
+		border-top: 1px solid var(--color-border);
+		background: var(--color-bg-secondary);
+	}
+
+	.footer p {
+		margin: 0;
+		color: var(--color-text-subtle);
+		font-size: 0.875rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 900px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-info {
+			order: -1;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.contact-hero {
+			padding: var(--space-2xl) 0 var(--space-lg);
+		}
+
+		.form-card {
+			padding: var(--space-lg);
+		}
+	}
+</style>
