@@ -64,10 +64,10 @@ const services = [
 ];
 
 const experience = [
-	{ company: "BookRetreats.com", role: "Senior Next.js Developer", tech: "Next.js, React, SWR" },
-	{ company: "DesertCart", role: "Senior React Developer", tech: "Next.js, React Native, TypeScript" },
-	{ company: "TeamKeys", role: "Lead React Native Developer", tech: "React Native, TypeScript" },
-	{ company: "Secret Source", role: "Lead React Developer", tech: "React, Redux, TypeScript" },
+	{ company: "BookRetreats", location: "USA", role: "Senior Next.js Developer", tech: "Next.js, React, SWR" },
+	{ company: "DesertCart", location: "UAE", role: "Senior React Developer", tech: "Next.js, React Native, TypeScript" },
+	{ company: "TeamKeys", location: "Italy", role: "Lead React Native Developer", tech: "React Native, TypeScript" },
+	{ company: "Secret Source", location: "Netherlands", role: "Lead React Developer", tech: "React, Redux, TypeScript" },
 	{ company: "European Space Agency", role: "Full Stack Developer", tech: "React, Django, PostgreSQL" }
 ];
 ---
@@ -205,7 +205,7 @@ const experience = [
 							<h4>Recent Experience</h4>
 							{experience.map((exp) => (
 								<div class="experience-item">
-									<span class="exp-company">{exp.company}</span>
+									<span class="exp-company">{exp.company}{exp.location && `, ${exp.location}`}</span>
 									<span class="exp-role">{exp.role}</span>
 								</div>
 							))}
