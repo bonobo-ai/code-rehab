@@ -851,10 +851,17 @@ const education = [
 			border-radius: 3px !important;
 		}
 
+		.cv-sidebar .cv-section:has(.languages-list) {
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
+		}
+
 		.languages-list {
 			list-style: none !important;
 			padding: 0 !important;
 			margin: 0 !important;
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
 		}
 
 		.languages-list li {
@@ -878,10 +885,17 @@ const education = [
 			font-size: 7pt !important;
 		}
 
+		.cv-sidebar .cv-section:has(.education-list) {
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
+		}
+
 		.education-list {
 			list-style: none !important;
 			padding: 0 !important;
 			margin: 0 !important;
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
 		}
 
 		.education-list li {
@@ -910,6 +924,16 @@ const education = [
 		.edu-meta {
 			color: #737373 !important;
 			font-size: 7pt !important;
+		}
+
+		.cv-sidebar .cv-section:has(.contact-info) {
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
+		}
+
+		.contact-info {
+			page-break-inside: avoid !important;
+			break-inside: avoid !important;
 		}
 
 		.contact-info p {
