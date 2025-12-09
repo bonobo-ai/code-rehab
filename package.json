@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.2",
-    "html2pdf.js": "^0.12.1"
+    "astro": "^5.16.2"
   }
 }
