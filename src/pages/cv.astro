@@ -9,10 +9,11 @@ const experience = [
 		location: "Europe (Remote)",
 		role: "Senior Full Stack Developer",
 		period: "Oct 2020 - Present",
+		description: "Long-term remote contractor for companies across the USA, UAE, and EU including BookRetreats, DesertCart, TeamKeys, Secret Source, and Ciao.",
 		tech: ["React", "React Native", "Next.js", "Node.js"],
 		highlights: [
-			"Long-term remote contractor for companies across the USA, UAE, and EU, focusing on sustained product development",
-			"Covered frontend, backend, and mobile roles, plus technical leadership, driving e-health, e-sports, e-commerce, and other digital projects",
+			"Focused on sustained product development covering frontend, backend, and mobile roles",
+			"Technical leadership driving e-health, e-sports, e-commerce, and other digital projects",
 			"Owned major parts of product lifecycles, ensuring continuity, scalability, and technical direction"
 		]
 	},
@@ -21,6 +22,7 @@ const experience = [
 		location: "Belgium (Hybrid)",
 		role: "Full Stack Developer",
 		period: "Dec 2019 - Jun 2020",
+		description: "Space Applications Services is a Belgian aerospace company working on projects for the European Space Agency and NASA.",
 		tech: ["React", "Redux", "JavaScript", "Python", "Django", "PostgreSQL"],
 		highlights: [
 			"Full-stack React & Django developer for the European Space Agency",
@@ -32,6 +34,7 @@ const experience = [
 		location: "Stockholm, Sweden",
 		role: "Scrum Master",
 		period: "Sep 2017 - Aug 2018",
+		description: "Natural Cycles is the first FDA-cleared birth control app, using body temperature data to track fertility.",
 		tech: ["Scrum", "Backlog Management", "Sprint Planning", "Retrospectives", "Agile Coaching"],
 		highlights: [
 			"Coordinated software development efforts for the Natural Cycles App, Web App and Website",
@@ -43,6 +46,7 @@ const experience = [
 		location: "Stockholm, Sweden",
 		role: "Product Owner",
 		period: "Oct 2015 - Aug 2017",
+		description: "Tinitell was a Stockholm-based IoT startup focused on wearable technology for cellular connectivity, known for their children's wristphone.",
 		tech: ["Product Management", "Agile", "UX/UI Coordination"],
 		highlights: [
 			"Product Owner for the company's software across all platforms (iOS, Android, Embedded)",
@@ -53,11 +57,11 @@ const experience = [
 	{
 		company: "InnoEnergy",
 		location: "Stockholm, Sweden",
-		role: "Product Marketing Coordinator",
+		role: "Product Marketer",
 		period: "Sep 2013 - Sep 2015",
+		description: "InnoEnergy is the European sustainable energy startup accelerator, backed by the European Institute of Innovation and Technology.",
 		tech: ["Marketing Strategy", "Brand Strategy", "Public Relations"],
 		highlights: [
-			"Marketing Coordinator for the European renewable energy startup accelerator InnoEnergy",
 			"Supported startups in building brand strategy & corporate image",
 			"Maintained public relations with tier one tech publications (i.e. Wired)",
 			"Supported startups on energy tech events (i.e. European Utility Week)"
@@ -68,7 +72,7 @@ const experience = [
 const skills = {
 	frontend: ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS"],
 	backend: ["Node.js", "Express", "Django", "Python", "REST APIs", "GraphQL"],
-	database: ["PostgreSQL", "MongoDB", "Redis", "Firebase"],
+	database: ["PostgreSQL", "MongoDB", "Supabase", "Firebase"],
 	tools: ["Git", "Docker", "AWS", "Vercel", "CI/CD", "Jest", "Cypress"]
 };
 
@@ -139,6 +143,7 @@ const languages = [
 										</div>
 										<span class="exp-period">{exp.period}</span>
 									</div>
+									{exp.description && <p class="exp-description">{exp.description}</p>}
 									<ul class="exp-highlights">
 										{exp.highlights.map((highlight) => (
 											<li>{highlight}</li>
@@ -445,6 +450,14 @@ const languages = [
 		font-size: 0.875rem;
 		color: var(--color-text-subtle);
 		white-space: nowrap;
+	}
+
+	.exp-description {
+		font-size: 0.9rem;
+		color: var(--color-text-subtle);
+		font-style: italic;
+		margin: var(--space-sm) 0 var(--space-md);
+		line-height: 1.5;
 	}
 
 	.exp-highlights {
