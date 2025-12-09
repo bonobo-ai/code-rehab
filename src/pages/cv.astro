@@ -82,6 +82,13 @@ const languages = [
 	{ name: "Swedish", level: "Fluent" },
 	{ name: "Spanish", level: "Fluent" }
 ];
+
+const education = [
+	{ school: "Aarhus University", degree: "MSc, New Product Development", period: "2010 - 2012", country: "Denmark" },
+	{ school: "Stockholm University", degree: "Exchange, Consumer Behavior", period: "2011 - 2012", country: "Sweden" },
+	{ school: "Università di Palermo", degree: "BSc, Economics & Business", period: "2006 - 2010", country: "Italy" },
+	{ school: "Universidad de Málaga", degree: "Exchange, Economics", period: "2008 - 2009", country: "Spain" }
+];
 ---
 
 <Layout title="CV | Valentino Giudice" description="Senior Full-Stack Developer with 6+ years of experience in React, Next.js, Node.js, and TypeScript, plus 3+ years in product management.">
@@ -203,6 +210,19 @@ const languages = [
 									<li>
 										<span class="lang-name">{lang.name}</span>
 										<span class="lang-level">{lang.level}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<div class="cv-section">
+							<h2>Education</h2>
+							<ul class="education-list">
+								{education.map((edu) => (
+									<li>
+										<span class="edu-school">{edu.school}</span>
+										<span class="edu-degree">{edu.degree}</span>
+										<span class="edu-meta">{edu.period} · {edu.country}</span>
 									</li>
 								))}
 							</ul>
@@ -547,6 +567,40 @@ const languages = [
 		font-size: 0.875rem;
 	}
 
+	.education-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.education-list li {
+		padding: var(--space-sm) 0;
+		border-bottom: 1px solid var(--color-border);
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.education-list li:last-child {
+		border-bottom: none;
+	}
+
+	.edu-school {
+		color: var(--color-text);
+		font-weight: 500;
+		font-size: 0.9rem;
+	}
+
+	.edu-degree {
+		color: var(--color-text-muted);
+		font-size: 0.8rem;
+	}
+
+	.edu-meta {
+		color: var(--color-text-subtle);
+		font-size: 0.75rem;
+	}
+
 	.contact-info p {
 		display: flex;
 		align-items: center;
@@ -811,6 +865,40 @@ const languages = [
 		.lang-level {
 			color: #666 !important;
 			font-size: 8pt !important;
+		}
+
+		.education-list {
+			list-style: none !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		.education-list li {
+			padding: 3pt 0 !important;
+			border-bottom: 1px solid #eee !important;
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 1pt !important;
+		}
+
+		.education-list li:last-child {
+			border-bottom: none !important;
+		}
+
+		.edu-school {
+			color: #1a1a1a !important;
+			font-weight: 500 !important;
+			font-size: 8pt !important;
+		}
+
+		.edu-degree {
+			color: #444 !important;
+			font-size: 7pt !important;
+		}
+
+		.edu-meta {
+			color: #666 !important;
+			font-size: 7pt !important;
 		}
 
 		.contact-info p {
