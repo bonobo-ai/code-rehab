@@ -89,12 +89,11 @@ const languages = [
 	{ name: "Italian", level: "Native" },
 	{ name: "English", level: "Fluent" },
 	{ name: "Swedish", level: "Fluent" },
-	{ name: "Spanish", level: "Fluent" },
-	{ name: "Chinese", level: "Basic" }
+	{ name: "Spanish", level: "Fluent" }
 ];
 ---
 
-<Layout title="CV | Valentino Giudice" description="Senior Full-Stack Developer with 10+ years of experience in React, Next.js, Node.js, and TypeScript.">
+<Layout title="CV | Valentino Giudice" description="Senior Full-Stack Developer with 6+ years of experience in React, Next.js, Node.js, and TypeScript, plus 3+ years in product management.">
 	<main>
 		<section class="cv-hero">
 			<div class="container">
@@ -112,7 +111,8 @@ const languages = [
 						<h1>Valentino Giudice</h1>
 						<p class="cv-title">Senior Full-Stack Developer</p>
 						<p class="cv-summary">
-							10+ years of experience building web and mobile applications.
+							6+ years of experience building web and mobile applications,
+							plus 3+ years in product management, Scrum Master, and Product Owner roles.
 							Specialized in React, Next.js, Node.js, and TypeScript.
 							Worked with startups and enterprises across the US, EU, and UAE.
 						</p>
@@ -307,23 +307,17 @@ const languages = [
 	.cv-photo {
 		flex-shrink: 0;
 		position: relative;
-	}
-
-	.cv-photo::before {
-		content: '';
-		position: absolute;
-		inset: -3px;
+		padding: 4px;
 		background: var(--gradient-teal);
-		border-radius: calc(var(--radius-lg) + 3px);
-		opacity: 0.5;
-		z-index: -1;
+		border-radius: var(--radius-lg);
 	}
 
 	.cv-photo img {
 		width: 150px;
 		height: 150px;
-		border-radius: var(--radius-lg);
+		border-radius: calc(var(--radius-lg) - 4px);
 		object-fit: cover;
+		display: block;
 	}
 
 	.cv-intro h1 {
@@ -604,8 +598,8 @@ const languages = [
 			display: none;
 		}
 
-		.cv-photo::before {
-			display: none;
+		.cv-photo {
+			background: #0d9488;
 		}
 
 		.cv-content {
