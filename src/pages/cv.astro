@@ -95,6 +95,7 @@ const education = [
 				<div class="cv-header">
 					<div class="cv-photo">
 						<img src="/valentino.jpg" alt="Valentino Giudice" width="150" height="150" />
+					<img src="/valentino-small.jpg" alt="Valentino Giudice" class="cv-photo-print" width="150" height="150" />
 					</div>
 					<div class="cv-intro">
 						<h1>Valentino Giudice</h1>
@@ -249,7 +250,10 @@ const education = [
 
 <script>
 	document.getElementById('downloadBtn')?.addEventListener('click', () => {
+		const originalTitle = document.title;
+		document.title = 'CV_Valentino Giudice';
 		window.print();
+		document.title = originalTitle;
 	});
 </script>
 
@@ -316,6 +320,10 @@ const education = [
 		border-radius: calc(var(--radius-lg) - 4px);
 		object-fit: cover;
 		display: block;
+	}
+
+	.cv-photo-print {
+		display: none !important;
 	}
 
 	.cv-intro h1 {
@@ -696,11 +704,15 @@ const education = [
 			border: 2px solid #0d9488 !important;
 		}
 
-		.cv-photo img {
+		.cv-photo img:first-child {
+			display: none !important;
+		}
+
+		.cv-photo-print {
+			display: block !important;
 			width: 56px !important;
 			height: 56px !important;
 			border-radius: 50% !important;
-			display: block !important;
 			object-fit: cover !important;
 		}
 
